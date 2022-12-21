@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{{ url_for('index') }}" method="POST" >
+	<div class="mb-3">
+		<label for="exampleInputLender" class="form-label" style="font-family:verdana;color:white;">Кредитор</label>
+		<input type="text" class="form-control" id="exampleInputLender" placeholder="Имя" name="lender">
+	</div>
+	<div class="mb-3">
+		<label for="exampleInputAmount" class="form-label" style="font-family:verdana;color:white;">Сумма</label>
+		<input type="text" class="form-control" id="exampleInputAmount" placeholder="Сумма" name="amount">
+	</div>
+    <div class="mb-3">
+		<label for="exampleInputBorrower" class="form-label" style="font-family:verdana;color:white;">Заемщик</label>
+		<input type="text" class="form-control" id="exampleInputBorrower" placeholder="Имя" name="borrower">
+	</div>
+
+
+	<button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+{% endblock %}
+
+{% block checking %}
+    {% for res in results %}
+        <div class="result" style="font-family:verdana;color:white;">
+            block {{ res['block'] }}: {{ res['result'] }}
+        </div>
+    {% endfor %}
+
+{% endblock %}
